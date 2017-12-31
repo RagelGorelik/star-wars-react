@@ -24,7 +24,6 @@ class DataFetcher {
     getSpecie(u){
         if(!u)
             return Promise.resolve('n/a')
-        console.log('getting ',u);
         return this.get(u);
     }
     get(u){
