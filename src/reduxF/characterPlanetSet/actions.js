@@ -1,7 +1,7 @@
 import { API_URL } from '../../constants';
 import DataFetcher from '../../DataFetcher.js';
 import {LIST_SIZE, LOOK_AHEAD} from '../../constants.js';
-import{ getProfile ,setCharacterProfile} from '../character/actions.js'
+import{ getProfile} from '../character/actions.js'
 
 let fetcher = new DataFetcher();
 
@@ -28,9 +28,6 @@ export function setCharacterPlanetSet(charPlanet){
 }
 export function mapDispatchToCharacterProps(dispatch){
 	return {
-        setCharacterProfile(profile){
-            return()=>dispatch(setCharacterProfile(profile))
-        },
   		getProfileCharacter(character){
             console.log(character+" I am in profile mapDispatch")
             return ()=>dispatch(getProfile(character))

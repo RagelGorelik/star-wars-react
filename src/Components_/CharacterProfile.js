@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setCharacterProfile
  } from '../reduxF/character/actions';
- import { mapDispatchToCharacterProps
- } from '../reduxF/characterPlanetSet/actions'
+ /*import { mapDispatchToCharacterProps
+ } from '../reduxF/characterPlanetSet/actions'*/
 const assign = Object.assign;
 
 const style_profile_wrap = {position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'} 
@@ -12,7 +12,7 @@ const style_profile_window = {position: 'relative', backgroundColor: 'white', }
 const style_profile_body = assign({padding: ' 0 20px 50px 20px'}, style_profile_window)
 assign(style_profile_window, {width: '50%', margin: '10% auto', float: 'none'});
  
-const CharacterProfile = ({profile, planet, setCharacterProfile}) => {
+const CharacterProfile = ({profile, setCharacterProfile}) => {
     if (profile.character){
         let character = profile.character;
         let spec = profile.species;
@@ -50,9 +50,15 @@ const CharacterProfile = ({profile, planet, setCharacterProfile}) => {
     }
     return null;
 }
-const mapStateToProp = ({ character: { profile, planet } }) =>({
+export function mapDispatchToCharacterProps(dispatch){
+  return {
+        setCharacterProfile(profile){
+            return()=>dispatch(setCharacterProfile(profile))
+        }
+  }
+}  
+const mapStateToProp = ({ character: { profile } }) =>({
     profile,
-    planet
 });
 
 export default connect(mapStateToProp, mapDispatchToCharacterProps)(CharacterProfile);

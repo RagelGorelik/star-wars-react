@@ -4,10 +4,7 @@ export const SET_CHARACTER_PROFILE = 'SET_CHARACTER_PROFILE';
 export function getProfile(characterPlan){
 
 	return dispatch =>{
-				
-		/*if(characterPlan ===undefined||characterPlan.hasOwnProperty())
-			return dispatch(setCharacterProfile(characterPlan));*/
-		//add species properties to profile
+		
         new DataFetcher().getSpecie(characterPlan.character.species[0])
                 .then (res => {if(characterPlan!==undefined){characterPlan.species=res}})
 	 .then(()=>{return dispatch && dispatch(setCharacterProfile(characterPlan))})
