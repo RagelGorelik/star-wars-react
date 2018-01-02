@@ -1,7 +1,7 @@
 import { API_URL } from '../../constants';
 import DataFetcher from '../../DataFetcher.js';
 import {LIST_SIZE, LOOK_AHEAD} from '../../constants.js';
-import{ setCharacterProfile } from '../character/actions.js'
+import{ getProfile } from '../character/actions.js'
 
 let fetcher = new DataFetcher();
 
@@ -24,8 +24,9 @@ export function setCharacterPlanetSet(charPlanet){
 }
 export function mapDispatchToCharacterProps(dispatch){
 	return {
-  		setCharacter(character){
-            return ()=>dispatch(setCharacterProfile(character))
+  		getProfileCharacter(character){
+            console.log(character+" I am in profile mapDispatch")
+            return ()=>dispatch(getProfile(character))
   		},
         setPrevPage(currentFirst){
             if(!currentFirst || currentFirst==1)

@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router';
-import { setCharacterProfile
- } from '../reduxF/character/actions.js';
 import { getPlanets, 
  } from '../reduxF/planets/actions.js';
 import Pager from '../reduxF/paginator.js';
@@ -10,7 +8,7 @@ import { getCharacterPlanet, mapDispatchToCharacterProps
 } from '../reduxF/characterPlanetSet/actions.js';
 import {LIST_SIZE} from '../constants.js';
 
-const charPlanetTable = ({setPlanets, charPlanet, setCharacter, setNextPage,
+const charPlanetTable = ({setPlanets, charPlanet, getProfileCharacter, setNextPage,
     setPrevPage})=>{
 document.title = 'Star Wars Characters';
 let arr = charPlanet.filter(c=>c.character);
@@ -33,7 +31,7 @@ return (
     <tbody>
       {arr.map((c, i)=>
       <tr key={i}>
-        <td onClick = {setCharacter(c)} role ='button'>
+        <td onClick = {getProfileCharacter(c)} role ='button'>
           {c.character.name}
         </td>
         <td>

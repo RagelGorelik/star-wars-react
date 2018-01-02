@@ -11,8 +11,8 @@ class DataFetcher {
                 character.id = i;
                 return Promise.all([
                     this.getPlanet(character.homeworld),
-                    this.getSpecie(character.species[0])
-                ]).then(arr=>({character, planet: arr[0], spec: arr[1]}));
+                   // this.getSpecie(character.species[0])
+                ]).then(arr=>({character, planet: arr[0]}));
             })
     }
     getPlanet(i){
@@ -23,14 +23,14 @@ class DataFetcher {
     }
     getSpecie(u){
         if(!u)
-            return Promise.resolve('n/a')
-        return this.get(u);
+            return Promise.resolve('n/a');
+        return this.get(u).then(res=>res);
     }
     get(u){
         let val = ls.get(u);
-        if (val){
+        if (val)
             return Promise.resolve(val);
-        }
+
         return fetch(u).then(response=>{
             if (response.status===200)
                 return response.json();
