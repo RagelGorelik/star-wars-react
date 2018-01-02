@@ -54,8 +54,17 @@ if (module.hot) {
     );
   });
 }
+// Kick off things by getting the first set characters
+//and only after that call warmUpCache
+store.dispatch(getCharacterPlanet(1, LIST_SIZE+LOOK_AHEAD))
+.then(console.log("First time I get CharPlanet"))
+.then (() => {store.dispatch(getPlanets(1, LIST_SIZE+LOOK_AHEAD))})
+.then(console.log("First time get planets"))
+.then (() => {warmUpCache(getCharacterPlanet, LIST_SIZE+LOOK_AHEAD+1, 'character');
+  warmUpCache(getPlanets, LIST_SIZE+LOOK_AHEAD+1)})
 
-store.dispatch(getPlanets(1, LIST_SIZE+LOOK_AHEAD));
+
+//because of charplanet is ar with 2 objects I need check key and do c.dataKey 
 const warmUpCache = (getter, start, dataKey)=>{
     getter(start, start+LIST_SIZE)().then(arr=>{
         arr = arr.filter(c=>dataKey ? c[dataKey] : c && c!=-1);
@@ -68,5 +77,4 @@ const warmUpCache = (getter, start, dataKey)=>{
         warmUpCache(getter, last+1, dataKey);
     })
 }
-warmUpCache(getCharacterPlanet, LIST_SIZE+LOOK_AHEAD+1, 'character');
-warmUpCache(getPlanets, LIST_SIZE+LOOK_AHEAD+1);
+
