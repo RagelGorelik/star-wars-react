@@ -1,12 +1,14 @@
 import { API_URL } from '../../constants';
 import DataFetcher from '../../DataFetcher.js';
 import {LIST_SIZE, LOOK_AHEAD} from '../../constants.js';
-import{ getProfile } from '../character/actions.js'
+import{ getProfile ,setCharacterProfile} from '../character/actions.js'
 
 let fetcher = new DataFetcher();
 
 export const SET_CHAR_PLANET = 'SET_CHAR_PLANET';
 
+//function returns another function because of using redux-thunk. 
+//So, if we need we can do asynchronous things direct from it.
 export var getCharacterPlanet = function(startId, endId){
     return dispatch => {
         let result = [];
@@ -16,6 +18,8 @@ export var getCharacterPlanet = function(startId, endId){
         return Promise.all(result).then(arr=>dispatch && dispatch(setCharacterPlanetSet(arr)) || arr);
     }
 }
+
+//action creator: returns an object that represents action, has to have type property!
 export function setCharacterPlanetSet(charPlanet){
     return {
         type: SET_CHAR_PLANET,
@@ -24,6 +28,9 @@ export function setCharacterPlanetSet(charPlanet){
 }
 export function mapDispatchToCharacterProps(dispatch){
 	return {
+        setCharacterProfile(profile){
+            return()=>dispatch(setCharacterProfile(profile))
+        },
   		getProfileCharacter(character){
             console.log(character+" I am in profile mapDispatch")
             return ()=>dispatch(getProfile(character))

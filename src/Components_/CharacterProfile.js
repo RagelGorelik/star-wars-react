@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getProfileCharacter
+import { setCharacterProfile
  } from '../reduxF/character/actions';
  import { mapDispatchToCharacterProps
  } from '../reduxF/characterPlanetSet/actions'
@@ -12,7 +12,7 @@ const style_profile_window = {position: 'relative', backgroundColor: 'white', }
 const style_profile_body = assign({padding: ' 0 20px 50px 20px'}, style_profile_window)
 assign(style_profile_window, {width: '50%', margin: '10% auto', float: 'none'});
  
-const CharacterProfile = ({profile, planet, getProfileCharacter}) => {
+const CharacterProfile = ({profile, planet, setCharacterProfile}) => {
     if (profile.character){
         let character = profile.character;
         let spec = profile.species;
@@ -42,7 +42,7 @@ const CharacterProfile = ({profile, planet, getProfileCharacter}) => {
                   {character.gender && <p>gender: {character.gender}</p>}
                 </div>
                 <button type='button' className='btn btn-danger pull-right'
-                  onClick={getProfileCharacter({})}>close</button>
+                  onClick={setCharacterProfile({})}>close</button>
               </div>
             </div>
           </div>
