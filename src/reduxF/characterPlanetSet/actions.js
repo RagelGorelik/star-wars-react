@@ -2,7 +2,6 @@ import { API_URL } from '../../constants';
 import DataFetcher from '../../DataFetcher.js';
 import {LIST_SIZE, LOOK_AHEAD} from '../../constants.js';
 import{ getProfile} from '../character/actions.js'
-import { beginTask, endTask } from 'redux-nprogress';
 let fetcher = new DataFetcher();
 
 export const SET_CHAR_PLANET = 'SET_CHAR_PLANET';
@@ -11,12 +10,11 @@ export const SET_CHAR_PLANET = 'SET_CHAR_PLANET';
 //So, if we need we can do asynchronous things direct from it.
 export var getCharacterPlanet = function(startId, endId){
     return dispatch => {
-        dispatch(beginTask());
         let result = [];
         for (let i = startId; i <= endId; i++) {
             result.push(fetcher.getCharacter(i));
         }
-        return Promise.all(result).then(dispath(endTask())).then(arr=>dispatch && dispatch(setCharacterPlanetSet(arr)) || arr);
+        return Promise.all(result).then(arr=>dispatch && dispatch(setCharacterPlanetSet(arr)) || arr);
     }
 }
 

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import {LIST_SIZE, LOOK_AHEAD} from '../constants.js';
 import { getPlanets } from '../reduxF/planets/actions';
 import Pager from '../reduxF/paginator.js';
+import LoadingState from '../Components_/LoadingState'
 
 export const planets = ({planets, setPrevPage, setNextPage}) => {
 document.title = 'Star Wars Planets';
@@ -13,7 +14,8 @@ let firstIndex = arr.reduce((a, c)=>
     c.id<a ? c.id : a, Infinity);
 return (
 <div className='container'>
-<div className='row'>
+<div className='row'> 
+<LoadingState loading ={ planets.length ==0}/>
 <div id='character-list'>
   <h1>Home Planets</h1>
   <table className = "table table-hover">

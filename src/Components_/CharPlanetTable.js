@@ -7,6 +7,7 @@ import Pager from '../reduxF/paginator.js';
 import { getCharacterPlanet, mapDispatchToCharacterProps 
 } from '../reduxF/characterPlanetSet/actions.js';
 import {LIST_SIZE} from '../constants.js';
+import LoadingState from '../Components_/LoadingState'
 
 const charPlanetTable = ({setPlanets, charPlanet, getProfileCharacter, setNextPage,
     setPrevPage})=>{
@@ -15,10 +16,9 @@ let arr = charPlanet.filter(c=>c.character);
 let cont = arr.splice(LIST_SIZE);
 let firstIndex = arr.reduce((a, c)=>
     c.character&&c.character.id<a ? c.character.id : a, Infinity);
-if (!charPlanet.length)
-    return <div><h1>Loading...</h1></div>
 return (
 <div>
+<LoadingState loading={charPlanet.length ==0}/>
 <div id ='character-list'>
   <h1>Star Wars Characters</h1>
   <table className = "table table-hover">

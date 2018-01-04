@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setCharacterProfile
  } from '../reduxF/character/actions';
- /*import { mapDispatchToCharacterProps
- } from '../reduxF/characterPlanetSet/actions'*/
+import LoadingState from '../Components_/LoadingState'
 const assign = Object.assign;
 
 const style_profile_wrap = {position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'} 
@@ -22,7 +21,7 @@ const CharacterProfile = ({profile, setCharacterProfile}) => {
           <div style={style_shadow}>
           </div>
           <div style={style_profile_wrap}>
-            <div id='character-profile' style={style_profile_window}>
+            <div id='character-profile' style={style_profile_window}> 
               <div className = 'panel panel-default' id='character_header'>
                 <span>{character.name}</span>
               </div>
