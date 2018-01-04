@@ -5,8 +5,10 @@ import {LIST_SIZE, LOOK_AHEAD} from '../constants.js';
 import { getPlanets } from '../reduxF/planets/actions';
 import Pager from '../reduxF/paginator.js';
 import LoadingState from '../Components_/LoadingState'
+import {getResidents} from '../reduxF/residents/actions'
+import Residents from '../Components_/PlanetsResidents.js'
 
-export const planets = ({planets, setPrevPage, setNextPage}) => {
+export const planets = ({planets, getResidents,setPrevPage, setNextPage}) => {
 document.title = 'Star Wars Planets';
 let arr = planets.filter(c=>c.name);
 let cont = arr.splice(LIST_SIZE);
@@ -21,7 +23,7 @@ return (
   <table className = "table table-hover">
     <thead>
       <tr>
-        <th>Name</th><th>Terrain</th><th>Population</th>
+        <th>Name</th><th>Terrain</th><th>Population</th><th>Residents</th>
       </tr>
     </thead>
     <tbody>
@@ -34,6 +36,7 @@ return (
       <td>
         {p.population}
       </td>
+      <td><button type="button" className="btn btn-primary" onClick={getResidents(p.residents)}>Show residents</button></td>
     </tr>
     )}
     </tbody>
@@ -49,6 +52,10 @@ const mapStateToProps = ({ planets }) =>({
     planets
 });
 const mapDispatchToProps = dispatch=>({
+
+  getResidents(residents){
+    return ()=>dispatch(getResidents(residents));
+  },
     setPrevPage(currentFirst){
         if(!currentFirst || currentFirst==1)
             return;

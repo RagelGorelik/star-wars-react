@@ -22,7 +22,7 @@ export var getCharacterPlanet = function(startId, endId){
 export function setCharacterPlanetSet(charPlanet){
     return {
         type: SET_CHAR_PLANET,
-         charPlanet
+        charPlanet
      };
 }
 export function mapDispatchToCharacterProps(dispatch){

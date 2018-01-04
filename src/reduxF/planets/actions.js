@@ -1,10 +1,11 @@
 import { API_URL } from '../../constants';
 import DataFetcher from '../../DataFetcher.js';
+
 let fetcher = new DataFetcher();
 
 export const SET_PLANETS = 'SET_PLANETS';
 
-export var getPlanets = function  (startId, endId) {
+export let getPlanets = function  (startId, endId) {
   return dispatch => {
     let result = [];
     for (let i = startId; i <= endId; i++) {
@@ -13,6 +14,7 @@ export var getPlanets = function  (startId, endId) {
     return Promise.all(result).then(a=>dispatch ? dispatch(setPlanets(a)) : a);
   }
 }
+
 
 export function setPlanets(planets) {
   return {

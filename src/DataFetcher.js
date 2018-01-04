@@ -4,7 +4,10 @@ const ls = require('localstorage-ttl');
 const assign = Object.assign;
 class DataFetcher {
     getCharacter(i){
-        return this.get(API_URL+'people/'+i)
+        let url = API_URL+'people/'+i;
+        if(isNaN(+i))
+            url = i;
+        return this.get(url)
             .then(character=>{
                 if(character == -1)
                     return Promise.resolve(()=>null);

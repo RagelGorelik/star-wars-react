@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setCharacterProfile
  } from '../reduxF/character/actions';
-import LoadingState from '../Components_/LoadingState'
 const assign = Object.assign;
 
 const style_profile_wrap = {position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'} 

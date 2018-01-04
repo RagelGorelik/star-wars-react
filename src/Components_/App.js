@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Link, Route, IndexRoute, browserHistory } from 'react-router'
 import CharacterProfile from './CharacterProfile.js';
-import Planets from './Planets.js';
 import CharPlanetTable from './CharPlanetTable.js';
 
 const App = ()=>
