@@ -27,7 +27,7 @@ if(residents && residents.draw && residents.data.length>0){
 </div>
 </div>)}
   else if(residents.draw === true)return (
-    <div><p>No resident leaves here</p></div>);
+    <div><p>No resident lives here</p></div>);
   else return null;
 }
 
