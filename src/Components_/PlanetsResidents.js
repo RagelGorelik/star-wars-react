@@ -7,8 +7,9 @@ import{ getResidents} from'../reduxF/residents/actions'
 export const Residents = ({getResidents,residents}) => {
   console.log("from Component",residents);
 document.title = 'Star Wars Residents';
-let arr = residents.filter(c=>c.character);
-if(arr.length>0){
+
+if(residents && residents.draw && residents.data.length>0){
+  let arr = residents.data.filter(c=>c.character);
   return (
 
 <div className='container'>
@@ -16,19 +17,17 @@ if(arr.length>0){
 <div id='character-list'>
   <h1>Planets Residents</h1>
   <ul>
-  arr.map(i=>
-    <li>
-    {i.character.name}</li>
-               
-  )</ul>
-
-  <p>hello{arr.length}</p>
-  <p>{arr[0].character.name}</p>
+  {arr.map(i=>
+    <li key={i.character.id}>
+    {i.character.name}</li>               
+  )}</ul>
   
   
 </div>
 </div>
 </div>)}
+  else if(residents.draw === true)return (
+    <div><p>No resident leaves here</p></div>);
   else return null;
 }
 
