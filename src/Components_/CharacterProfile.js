@@ -22,7 +22,7 @@ const CharacterProfile = ({profile, setCharacterProfile}) => {
                   {character.eye_color && <p>eye color: {character.eye_color}</p>}
                   {character.birth_year && <p>birth year: {character.birth_year}</p>}
                   {character.gender && <p>gender: {character.gender}</p>}
-                <button type='button' className='btn btn-danger pull-right'
+                <button type='button' className='btn btn-danger pull-right' id='prof_btn'
                   onClick={setCharacterProfile({})}>close</button>
               </div>
               </div>

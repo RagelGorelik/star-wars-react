@@ -9,26 +9,22 @@ tr:nth-child(even){
 	background-color: #f2f2f2;
 }
 .wrapper{
-	background-color: #f2f2f2;
+	background-color: rgba(0,0,0,.5);
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	opacity: 0.8;
 
 }
 .profile{
 	background-color: white;
+	color: grey;
 	width: 300px;
-    border: 25px solid green;
-    padding: 25px;
-    margin: 25px;
-    opacity: 1;
+    padding: 20px;
+    margin: 180px;
+    box-shadow: 10px 10px 5px #aaaaaa;
 }
-/*
-const style_profile_wrap = {position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'} 
-const style_shadow = assign({backgroundColor: 'black', opacity: 0.4}, style_profile_wrap)
-const style_profile_window = {position: 'relative', backgroundColor: 'white', }
-const style_profile_body = assign({padding: ' 0 20px 50px 20px'}, style_profile_window)
-assign(style_profile_window, {width: '50%', margin: '10% auto', float: 'none'});*/
+#prof_btn{
+	 margin-top: -10%;
+}
