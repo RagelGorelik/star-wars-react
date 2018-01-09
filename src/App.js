@@ -10,7 +10,8 @@ import App from './Components_/App.js';
 import reducer from './reduxF';
 import { getCharacterPlanet } from './reduxF/characterPlanetSet/actions.js';
 import { getPlanets } from './reduxF/planets/actions.js';
-import {LIST_SIZE, LOOK_AHEAD} from './constants.js'
+import {LIST_SIZE, LOOK_AHEAD} from './constants.js';
+
 
 require('./index.html');
 

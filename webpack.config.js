@@ -2,7 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-
+  resolve: {
+    extensions: ['.js', '.css', '.scss']
+  },
   entry: [
     'react-hot-loader/patch',
     './src/app.js',
@@ -22,6 +24,9 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      // handle stylesheets required from node packages
+    { test: /\.css$/,
+      loader: 'style-loader!css-loader'},
     ],
   },
   plugins: [

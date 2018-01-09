@@ -8,6 +8,7 @@
     "serve": "webpack-dev-server --hot --inline --content-base ./src --open"
   },
   "dependencies": {
+    "localstorage-ttl": "1.0.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^4.4.5",
@@ -15,8 +16,8 @@
     "react-scripts": "1.0.17",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
-    "whatwg-fetch": "2.0.3",
-    "localstorage-ttl": "1.0.2"
+    "webpack-css-loaders": "^1.0.0",
+    "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",

@@ -8,6 +8,7 @@ import { getCharacterPlanet, mapDispatchToCharacterProps
 } from '../reduxF/characterPlanetSet/actions.js';
 import {LIST_SIZE} from '../constants.js';
 import LoadingState from '../Components_/LoadingState'
+import style from '../index.css'
 
 const charPlanetTable = ({setPlanets, charPlanet, getProfileCharacter, setNextPage,
     setPrevPage})=>{
