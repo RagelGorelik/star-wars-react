@@ -1,6 +1,5 @@
 Star Wars Application - Javascript, React.js, Redux & SWAPI
 
-It was really useful and interesting learning exercise, I enjoyed it!
 Page 1:  Entry page. Lists the star wars characters and their home planets.
 Page 2:  Planets list including name, terrain and population.
 I used APIs supplied by https://swapi.co/
